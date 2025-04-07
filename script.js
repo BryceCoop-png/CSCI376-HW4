@@ -26,6 +26,15 @@ const questions = [
         { text: "Computer Style Sheets", correct: false },
         { text: "Creative Style Syntax", correct: false }
       ]
+    },
+    {
+      question: "What is an 8-sided shape?",
+      answers: [
+        { text: "Pentagon", correct: false },
+        { text: "Octogon", correct: true },
+        { text: "Nonagon", correct: false },
+        { text: "heptagon", correct: false }
+      ]
     }
   ];
   
