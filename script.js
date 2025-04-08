@@ -33,13 +33,13 @@ const questions = [
         { text: "Pentagon", correct: false },
         { text: "Octogon", correct: true },
         { text: "Nonagon", correct: false },
-        { text: "heptagon", correct: false }
+        { text: "Heptagon", correct: false }
       ]
     }
   ];
   
   // 2. How do we know what id to search for when using document.getElementById()? Where are the following ids specified in index.html? 
-  // 
+  // The ids are intiated in the body of index.html. We make the ids, so we must use the class to properly search for the id.
   const questionElement = document.getElementById("question");
   const answerButtonsElement = document.getElementById("answer-buttons");
   const nextButton = document.getElementById("next-btn");
@@ -61,7 +61,7 @@ const questions = [
   
     currentQuestion.answers.forEach(answer => {
       // 3. Why are these HTML elements being created dynamically in the JS file, while other page elements are defined statically in the HTML file?
-      // 
+      // The state of these elements relies on user input, therefore these change during runtime. While the others are consistent in each page.
       const button = document.createElement("button");
       button.textContent = answer.text;
       button.classList.add("btn");
@@ -70,7 +70,7 @@ const questions = [
       }
       button.addEventListener("click", selectAnswer);
       // 4. What is the line below doing? 
-      // 
+      // This adds the selected answer to the list of all selected answers
       answerButtonsElement.appendChild(button);
     });
   }
@@ -97,7 +97,7 @@ const questions = [
       button.disabled = true;
     });
     // 5. Why is it important to change the display styling rule for the "Next" button to "block" here? What would happen if you did not have this line?
-    // 
+    // This ensures that the user will only be able to continue after they answer the current question.
     nextButton.style.display = "block";
   }
   
@@ -118,7 +118,7 @@ const questions = [
   }
   
   // 6. Summarize in your own words what you think this block of code is doing. 
-  // 
+  // If this current question is not the last show the next button, if it is the last then show a restart button that prompts the quiz again.
   nextButton.addEventListener("click", () => { 
     if (currentQuestionIndex < questions.length) {
       handleNextButton();
